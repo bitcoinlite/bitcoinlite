@@ -1075,16 +1075,15 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = 50 * COIN;
 
-    // Subsidy is cut in half every 210000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 210000);
+    // Subsidy is cut in half every 240000 blocks, which will occur approximately every 3 months
+    nSubsidy >>= (nHeight / 240000);
 
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 14 * 24 * 60 * 60; // two weeks
-static const int64 nTargetSpacing = 10 * 60;
+static const int64 nTargetTimespan = 1 * 24 * 60 * 60; // bitcoinlite: 1 days
+static const int64 nTargetSpacing = 30; // bitcoinlite: 30 seconds
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
-
 //
 // minimum amount of work that could possibly be required nTime after
 // minimum work required was nBase
@@ -2757,7 +2756,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 4a5e1e
 
         // Genesis block
-        const char* pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
+        const char* pszTimestamp = "The Times 04/March/2014 Putin: I was forced to act by Kiev coup ";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2769,13 +2768,13 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1231006505;
+        block.nTime    = 1393947714;
         block.nBits    = 0x1d00ffff;
         block.nNonce   = 2083236893;
 
         if (fTestNet)
         {
-            block.nTime    = 1296688602;
+            block.nTime    = 1393947729;
             block.nNonce   = 414098458;
         }
 
