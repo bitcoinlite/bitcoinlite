@@ -8,6 +8,18 @@ DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
 
+#windows:LIBS += -lshlwapi
+#LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
+#LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
+#windows:LIBS += -lws2_32 -lole32 -loleaut32 -luuid -lgdi32
+#LIBS += -lboost_system-mgw46-mt-sd-1_53 -lboost_filesystem-mgw46-mt-sd-1_53 -lboost_program_options-mgw46-mt-sd-1_55 -lboost_thread-mgw46-mt-sd-1_55
+#BOOST_LIB_SUFFIX=-mgw46-mt-sd-1_55
+#BOOST_INCLUDE_PATH=C:/deps/boost
+#BOOST_LIB_PATH=C:/deps/boost/stage/lib
+#BDB_INCLUDE_PATH=c:/deps/db/build_unix
+#BDB_LIB_PATH=c:/deps/db/build_unix
+#OPENSSL_INCLUDE_PATH=c:/deps/ssl/include
+#OPENSSL_LIB_PATH=c:/deps/ssl
 # for boost 1.37, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
